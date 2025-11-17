@@ -1,1 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CarDekho Home</title>
+
+  <style>
+    /* ===== GLOBAL RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      color: #2c3e50;
+      background: #f8f9ff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #6237c8;
+    }
+
+    .logo span {
+      color: #2c3e50;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #2c3e50;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #6237c8;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+        url('images/bannerimage.png') center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+      padding: 10rem 2rem 8rem;
+      animation: fadeInHero 1.5s ease-in;
+    }
+
+    @keyframes fadeInHero {
+      from {
+        opacity: 0;
+        transform: scale(1.05);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      max-width: 700px;
+      margin-inline: auto;
+    }
+
+    .btn {
+      background: #6237c8;
+      color: #fff;
+      padding: 0.8rem 1.8rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .btn:hover {
+      background: #4a2a9f;
+      transform: translateY(-3px);
+    }
+
+    /* ===== SEARCH ===== */
+    .search-section {
+      background: #fff;
+      padding: 2rem;
+      margin: -3rem auto 3rem;
+      width: 90%;
+      max-width: 1000px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+    }
+
+    .search-section select,
+    .search-section button {
+      flex: 1 1 180px;
+      padding: 0.8rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+
+    .search-section button {
+      background: #6237c8;
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .search-section button:hover {
+      background: #4a2a9f;
+    }
+
+    /* ===== FEATURED ===== */
+    .featured {
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .featured h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2.5rem;
+      color: #2c3e50;
+    }
+
+    .car-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .car-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .car-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(98, 55, 200, 0.3);
+    }
+
+    .car-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: contain;
+      background: #f2f2f2;
+      padding: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .car-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .car-info {
+      padding: 1.5rem;
+      text-align: left;
+    }
+
+    .car-info h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .price {
+      color: #6237c8;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      font-size: 1.1rem;
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.7rem 1.3rem;
+      background: #6237c8;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-secondary:hover {
+      background: #4a2a9f;
+    }
+
+    /* ===== BRANDS ===== */
+    .brands {
+      background: #fff;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .brands h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .brand-logos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .brand-logos img {
+      width: 100px;
+      opacity: 0.7;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .brand-logos img:hover {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+    /* ===== REVIEWS ===== */
+    .reviews {
+      background: linear-gradient(120deg, #6237c8, #4a2a9f);
+      color: #fff;
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+
+    .reviews h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .review {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .review p {
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    /* ===== NEWSLETTER ===== */
+    .newsletter {
+      background: #fff;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .newsletter h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #2c3e50;
+    }
+
+    .newsletter p {
+      margin-bottom: 1.5rem;
+      color: #555;
+    }
+
+    .newsletter form {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .newsletter input {
+      padding: 0.8rem 1rem;
+      width: 260px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-family: inherit;
+    }
+
+    .newsletter button {
+      background: #6237c8;
+      color: #fff;
+      border: none;
+      padding: 0.8rem 1.4rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .newsletter button:hover {
+      background: #4a2a9f;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      background: #2c3e50;
+      color: #fff;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .car-card img {
+        height: 220px;
+      }
+
+      .car-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">CarDekho<span>Clone</span></div>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="cars.html">Cars</a></li>
+      <li><a href="compares.html">Compare</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="dealers.html">Dealers</a></li>
+      <li><a href="cars.html">Cars</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Find Your Perfect Car</h1>
+    <p>Explore, compare, and discover your dream car — inspired by the original CarDekho platform.</p>
+    <a href="listings.html" class="btn">Browse Cars</a>
+  </section>
+
+  <section class="search-section">
+    <select>
+      <option>Select Brand</option>
+      <option>Hyundai</option>
+      <option>Tata</option>
+      <option>Maruti</option>
+      <option>Honda</option>
+    </select>
+    <select>
+      <option>Fuel Type</option>
+      <option>Petrol</option>
+      <option>Diesel</option>
+      <option>Electric</option>
+    </select>
+    <select>
+      <option>Transmission</option>
+      <option>Manual</option>
+      <option>Automatic</option>
+    </select>
+    <button>Search Cars</button>
+  </section>
+
+  <section class="featured">
+    <h2>Featured Cars</h2>
+    <div class="car-grid">
+      <div class="car-card">
+        <img src="images/cretaimage.png" alt="Hyundai Creta 2024">
+        <div class="car-info">
+          <h3>Hyundai Creta 2024</h3>
+          <p class="price">₹12.5 Lakh</p>
+          <p>Petrol | Manual</p>
+          <a href="#" class="btn-secondary">View Details</a>
+        </div>
+      </div>
+
+      <div class="car-card">
+        <img src="images/brezzaimage.png" alt="Maruti Brezza 2024">
+        <div class="car-info">
+          <h3>Maruti Brezza 2024</h3>
+          <p class="price">₹10.2 Lakh</p>
+          <p>Petrol | AMT</p>
+          <a href="#" class="btn-secondary">View Details</a>
+        </div>
+      </div>
+
+      <div class="car-card">
+        <img src="images/hondacityimage.png" alt="Honda City 2024">
+        <div class="car-info">
+          <h3>Honda City 2024</h3>
+          <p class="price">₹13.2 Lakh</p>
+          <p>Petrol | CVT</p>
+          <a href="#" class="btn-secondary">View Details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="brands">
+    <h2>Top Car Brands</h2>
+    <div class="brand-logos">
+      <img src="images/marutilogoimage.png" alt="Maruti">
+      <img src="images/tatalogoimage.png" alt="Tata">
+      <img src="images/hundaiimage.png" alt="Hyundai">
+      <img src="images/kialogoimage.png" alt="Kia">
+      <img src="images/hondalogoimage.png" alt="Honda">
+    </div>
+  </section>
+
+  <section class="reviews">
+    <h2>What Our Customers Say</h2>
+    <div class="review-grid">
+      <div class="review">
+        <p>"The design looks so real! I compared 3 cars easily using this clone layout."</p>
+        <h4>- Rohan Mehta</h4>
+      </div>
+      <div class="review">
+        <p>"Super responsive on my phone and laptop. Amazing for a pure HTML-CSS project!"</p>
+        <h4>- Aisha Khan</h4>
+      </div>
+      <div class="review">
+        <p>"Loved the card hover effects and search filter. This feels like the real CarDekho site!"</p>
+        <h4>- Aman Patel</h4>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <h2>Stay Updated!</h2>
+    <p>Subscribe to get the latest car updates, reviews, and news directly to your inbox.</p>
+    <form>
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 CarDekho Project | Developed by Sahil Mate</p>
+  </footer>
+</body>
+<script src="script.js"></script>
+</html>
 
