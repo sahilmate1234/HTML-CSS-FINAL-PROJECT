@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | CarDekho Clone</title>
+
+  <style>
+    /* ===== BASIC RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 700;
+      color: #6237c8;
+    }
+
+    .logo span {
+      color: #000;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .navbar li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.3s;
+    }
+
+    .navbar li a:hover,
+    .navbar li a.active {
+      color: #6237c8;
+    }
+
+    .navbar li a i {
+      color: #6237c8;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('images/bannerimage.png') center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    /* ===== ABOUT SECTION ===== */
+    .about-section {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-section h2 {
+      text-align: center;
+      font-size: 30px;
+      color: #6237c8;
+      margin-bottom: 20px;
+    }
+
+    .about-section p {
+      text-align: justify;
+      font-size: 16px;
+      color: #444;
+      margin-bottom: 15px;
+    }
+
+    /* ===== MISSION SECTION ===== */
+    .mission-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 60px;
+    }
+
+    .mission-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .mission-text h3 {
+      color: #6237c8;
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    .mission-text p {
+      color: #555;
+    }
+
+    .mission-image {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .mission-image img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ===== TEAM SECTION ===== */
+    .team-section {
+      background: #fff;
+      margin: 60px auto;
+      padding: 40px 20px;
+      border-radius: 12px;
+      max-width: 1100px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .team-section h2 {
+      color: #6237c8;
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+
+    .team-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .team-card {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 12px;
+      width: 250px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .team-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .team-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .team-card h4 {
+      font-size: 20px;
+      color: #6237c8;
+    }
+
+    .team-card p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* ===== CONTACT CTA ===== */
+    .cta {
+      background: #6237c8;
+      color: #fff;
+      text-align: center;
+      padding: 50px 20px;
+      margin-top: 50px;
+    }
+
+    .cta h2 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .cta p {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    .cta a {
+      background: #fff;
+      color: #6237c8;
+      padding: 10px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .cta a:hover {
+      background: #111;
+      color: #fff;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    /* ===== RESPONSIVE DESIGN ===== */
+    @media (max-width: 768px) {
+      .mission-section {
+        flex-direction: column;
+      }
+
+      .team-card {
+        width: 90%;
+      }
+
+      .hero h1 {
+        font-size: 30px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="logo">Car<span>Dekho</span></div>
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="cars.html"><i class="fa-solid fa-car"></i> Cars</a></li>
+        <li><a href="compare.html"><i class="fa-solid fa-code-compare"></i> Compare</a></li>
+        <li><a href="about.html" class="active"><i class="fa-solid fa-circle-info"></i> About</a></li>
+        <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+        <li><a href="dealers.html"><i class="fa-solid fa-store"></i> Dealers</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <h1>About CarDekho</h1>
+    <p>Your trusted destination for discovering, comparing, and choosing the perfect car.</p>
+  </section>
+
+  <!-- ===== ABOUT CONTENT ===== -->
+  <section class="about-section">
+    <h2>Who We Are</h2>
+    <p>
+      CarDekho Clone is a pure HTML, CSS, and JavaScript project built to replicate the structure and design of the
+      original CarDekho platform. Our goal is to offer an interactive and responsive web experience where users can
+      explore, compare, and learn about different car models effortlessly.
+    </p>
+
+    <p>
+      This project demonstrates the power of front-end design principles — from clean UI layouts to responsive grid
+      systems — all crafted with simplicity and precision. It highlights how web design can deliver a real-world
+      experience even without backend systems.
+    </p>
+
+    <!-- MISSION SECTION -->
+    <div class="mission-section">
+      <div class="mission-text">
+        <h3>Our Mission</h3>
+        <p>
+          To make car discovery and comparison simple, engaging, and visually appealing. Our mission is to replicate
+          CarDekho's essence through clean design, user-friendly navigation, and smooth interactions powered entirely by
+          front-end technologies.
+        </p>
+      </div>
+      <div class="mission-image">
+        <img src="images/missionimage.png" alt="Our Mission Image" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TEAM SECTION ===== -->
+  <section class="team-section">
+    <h2>Meet the CarDekho Leadership</h2>
+    <div class="team-container">
+      <div class="team-card">
+        <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=400&q=80" alt="Amit Jain">
+        <h4>Amit Jain</h4>
+        <p>CEO & Co-Founder</p>
+      </div>
+      <div class="team-card">
+        <img src="images/member2image.png" alt="Anurag Jain">
+        <h4>Anurag Jain</h4>
+        <p>Co-Founder & COO</p>
+      </div>
+      <div class="team-card">
+        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80" alt="Gaurav Mehta">
+        <h4>Gaurav Mehta</h4>
+        <p>Chief Marketing Officer</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT CTA ===== -->
+  <section class="cta">
+    <h2>Want to Learn More?</h2>
+    <p>Get in touch with us to explore more about this project or share your feedback.</p>
+    <a href="contact.html">Contact Us</a>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>© 2025 CarDekho Clone | Designed by Sahil Mate | All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>
