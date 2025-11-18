@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compare Cars | CarDekho Clone</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- INTERNAL CSS -->
+  <style>
+    /* ===== Basic Reset ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* ===== Header ===== */
+    .header {
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 700;
+      color: #e63946;
+    }
+
+    .logo span {
+      color: #000;
+    }
+
+    .navbar a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover,
+    .navbar a.active {
+      color: #e63946;
+    }
+
+    /* ===== Hero Section ===== */
+    .hero {
+      background: url('images/bannerimage.png') center/cover no-repeat;
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: white;
+      text-align: center;
+      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+      padding: 0 10px;
+    }
+
+    .hero h1 {
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 600px;
+    }
+
+    /* ===== Compare Section ===== */
+    .compare-section {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .compare-section h2 {
+      font-size: 30px;
+      margin-bottom: 10px;
+      color: #222;
+    }
+
+    .compare-section p {
+      color: #555;
+      margin-bottom: 40px;
+    }
+
+    /* ===== Compare Form ===== */
+    .compare-form {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 50px;
+    }
+
+    .compare-form select {
+      padding: 10px 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 15px;
+      outline: none;
+      transition: border 0.3s;
+    }
+
+    .compare-form select:focus {
+      border-color: #e63946;
+    }
+
+    .compare-form button {
+      padding: 10px 25px;
+      border: none;
+      background: #e63946;
+      color: #fff;
+      border-radius: 5px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .compare-form button:hover {
+      background: #c82e3a;
+    }
+
+    /* ===== Compare Container ===== */
+    .compare-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    /* ===== Car Card ===== */
+    .car-card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      width: 320px;
+      padding: 20px;
+      transition: 0.3s ease;
+    }
+
+    .car-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .car-card img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .car-card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #e63946;
+    }
+
+    .car-card ul {
+      list-style: none;
+      text-align: left;
+    }
+
+    .car-card li {
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+      font-size: 15px;
+    }
+
+    .car-card li strong {
+      color: #000;
+    }
+
+    /* ===== VS Divider ===== */
+    .vs {
+      font-size: 32px;
+      font-weight: bold;
+      color: #e63946;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+
+    /* ===== Footer ===== */
+    .footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+      font-size: 14px;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 992px) {
+      .compare-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .vs {
+        display: none;
+      }
+
+      .car-card {
+        width: 90%;
+      }
+
+      .hero {
+        height: 200px;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+    }
+
+    /* ===== Scrollbar ===== */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #e63946;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="logo">Car<span>Dekho</span></div>
+    <nav class="navbar">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="cars.html">Cars</a></li>
+      <li><a href="compare.html">Compare</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="dealers.html">Dealers</a></li>
+      <li><a href="cars.html">Cars</a></li>
+    </nav>
+  </header>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero">
+    <h1>Compare Cars Side by Side</h1>
+    <p>Find the perfect car by comparing models, specs, prices, and features all in one place.</p>
+  </section>
+
+  <!-- ===== MAIN COMPARE SECTION ===== -->
+  <section class="compare-section">
+    <h2>Select Cars to Compare</h2>
+    <p>Choose two cars from the list below and see the detailed comparison instantly.</p>
+
+    <div class="compare-form">
+      <select>
+        <option selected disabled>Select Car 1</option>
+        <option>Tata Punch</option>
+        <option>Hyundai Exter</option>
+        <option>Maruti Brezza</option>
+        <option>Kia Sonet</option>
+        <option>Mahindra XUV300</option>
+      </select>
+
+      <select>
+        <option selected disabled>Select Car 2</option>
+        <option>Hyundai Exter</option>
+        <option>Tata Punch</option>
+        <option>Maruti Brezza</option>
+        <option>Kia Sonet</option>
+        <option>Mahindra XUV300</option>
+      </select>
+
+      <button>Compare Now</button>
+    </div>
+
+    <div class="compare-container">
+      <!-- Car 1 -->
+      <div class="car-card">
+        <img src="images/tatapunchimage.png" alt="Tata Punch">
+        <h3>Tata Punch</h3>
+        <ul>
+          <li><strong>Price:</strong> ₹6.00 - ₹10.10 Lakh</li>
+          <li><strong>Mileage:</strong> 20.09 kmpl</li>
+          <li><strong>Engine:</strong> 1199 cc</li>
+          <li><strong>Fuel Type:</strong> Petrol / CNG</li>
+          <li><strong>Transmission:</strong> Manual / AMT</li>
+          <li><strong>Seating Capacity:</strong> 5</li>
+          <li><strong>Airbags:</strong> Dual Front</li>
+          <li><strong>Boot Space:</strong> 366 Litres</li>
+        </ul>
+      </div>
+
+      <!-- VS Divider -->
+      <div class="vs">VS</div>
+
+      <!-- Car 2 -->
+      <div class="car-card">
+        <img src="images/hundaiexterimage.png" alt="Hyundai Exter">
+        <h3>Hyundai Exter</h3>
+        <ul>
+          <li><strong>Price:</strong> ₹6.13 - ₹10.28 Lakh</li>
+          <li><strong>Mileage:</strong> 19.4 kmpl</li>
+          <li><strong>Engine:</strong> 1197 cc</li>
+          <li><strong>Fuel Type:</strong> Petrol / CNG</li>
+          <li><strong>Transmission:</strong> Manual / AMT</li>
+          <li><strong>Seating Capacity:</strong> 5</li>
+          <li><strong>Airbags:</strong> 6 Standard</li>
+          <li><strong>Boot Space:</strong> 391 Litres</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p>© 2025 CarDekho Clone | Designed by You | All Rights Reserved</p>
+  </footer>
+</body>
+
+</html>
