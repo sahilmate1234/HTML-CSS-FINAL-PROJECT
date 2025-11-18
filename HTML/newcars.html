@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Cars | CarDekho Clone</title>
+
+  <style>
+    /* ===== BASIC RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 700;
+      color: #e63946;
+    }
+
+    .logo span {
+      color: #000;
+    }
+
+    .navbar a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover,
+    .navbar a.active {
+      color: #e63946;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+      url('https://stimg.cardekho.com/images/uploadimages/1673850715485/New-Cars-Banner.jpg') center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    /* ===== CARS SECTION ===== */
+    .cars-section {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .cars-section h2 {
+      text-align: center;
+      font-size: 30px;
+      color: #e63946;
+      margin-bottom: 15px;
+    }
+
+    .cars-section p {
+      text-align: center;
+      color: #555;
+      margin-bottom: 40px;
+    }
+
+    .cars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 25px;
+    }
+
+    /* ===== CAR CARD ===== */
+    .car-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .car-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .car-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .car-info {
+      padding: 20px;
+    }
+
+    .car-info h3 {
+      font-size: 20px;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    .car-info p {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      color: #e63946;
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #e63946;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #c72f3a;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+      font-size: 14px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+   <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="logo">Car<span>Dekho</span></div>
+    <nav class="navbar">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="cars.html">Cars</a></li>
+      <li><a href="compare.html">Compare</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="dealers.html">Dealers</a></li>
+      <li><a href="cars.html">Cars</a></li>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <h1>Explore New Cars in India</h1>
+    <p>Find the latest and most popular car models with their price, mileage, and features — all in one place.</p>
+  </section>
+
+  <!-- ===== CARS LIST ===== -->
+  <section class="cars-section">
+    <h2>Top New Cars 2025</h2>
+    <p>Discover the trending new car models this year.</p>
+
+    <div class="cars-grid">
+      <!-- Car 1 -->
+      <div class="car-card">
+        <img src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Tata/Curvv/11319/1727694055538/front-left-side-47.jpg" alt="Tata Curvv">
+        <div class="car-info">
+          <h3>Tata Curvv</h3>
+          <p>Electric SUV | Automatic</p>
+          <p class="price">₹19.00 Lakh*</p>
+          <a href="#" class="btn">View Details</a>
+        </div>
+      </div>
+
+      <!-- Car 2 -->
+      <div class="car-card">
+        <img src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Maruti/Swift/10810/1707821364961/front-left-side-47.jpg" alt="Maruti Swift">
+        <div class="car-info">
+          <h3>Maruti Swift</h3>
+          <p>Petrol | Manual / AMT</p>
+          <p class="price">₹6.49 - ₹9.49 Lakh*</p>
+          <a href="#" class="btn">View Details</a>
+        </div>
+      </div>
+
+      <!-- Car 3 -->
+      <div class="car-card">
+        <img src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Hyundai/Creta/11409/1730367650918/front-left-side-47.jpg" alt="Hyundai Creta">
+        <div class="car-info">
+          <h3>Hyundai Creta</h3>
+          <p>Petrol / Diesel | Manual / Automatic</p>
+          <p class="price">₹10.99 - ₹18.42 Lakh*</p>
+          <a href="#" class="btn">View Details</a>
+        </div>
+      </div>
+
+      <!-- Car 4 -->
+      <div class="car-card">
+        <img src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Mahindra/Scorpio-N/10910/1695984828459/front-left-side-47.jpg" alt="Mahindra Scorpio N">
+        <div class="car-info">
+          <h3>Mahindra Scorpio N</h3>
+          <p>Diesel / Petrol | Manual / AT</p>
+          <p class="price">₹13.60 - ₹24.54 Lakh*</p>
+          <a href="#" class="btn">View Details</a>
+        </div>
+      </div>
+
+      <!-- Car 5 -->
+      <div class="car-card">
+        <img src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Kia/Seltos/11542/1730186981236/front-left-side-47.jpg" alt="Kia Seltos">
+        <div class="car-info">
+          <h3>Kia Seltos</h3>
+          <p>Petrol / Diesel | iMT / DCT</p>
+          <p class="price">₹10.90 - ₹20.35 Lakh*</p>
+          <a href="#" class="btn">View Details</a>
+        </div>
+      </div>
+
+      <!-- Car 6 -->
+      <div class="car-card">
+        <img src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Toyota/Innova-Hycross/10761/1704788326953/front-left-side-47.jpg" alt="Toyota Innova Hycross">
+        <div class="car-info">
+          <h3>Toyota Innova Hycross</h3>
+          <p>Hybrid / Petrol | Automatic</p>
+          <p class="price">₹19.77 - ₹30.68 Lakh*</p>
+          <a href="#" class="btn">View Details</a>
+        </div>
+      </div>
+
+      <!-- Car 7 -->
+      <div class="car-card">
+        <img src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Honda/Elevate/11117/1691740892294/front-left-side-47.jpg" alt="Honda Elevate">
+        <div class="car-info">
+          <h3>Honda Elevate</h3>
+          <p>Petrol | CVT / Manual</p>
+          <p class="price">₹11.58 - ₹16.20 Lakh*</p>
+          <a href="#" class="btn">View Details</a>
+        </div>
+      </div>
+
+      <!-- Car 8 -->
+      <div class="car-card">
+        <img src="https://stimg.cardekho.com/images/carexteriorimages/930x620/MG/Astor/11379/1729748370598/front-left-side-47.jpg" alt="MG Astor">
+        <div class="car-info">
+          <h3>MG Astor</h3>
+          <p>Petrol | Automatic / Manual</p>
+          <p class="price">₹10.82 - ₹18.69 Lakh*</p>
+          <a href="#" class="btn">View Details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p>© 2025 CarDekho Clone | Designed by Sahil Mate | All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>
